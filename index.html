@@ -79,17 +79,17 @@
             background-color: #333;
         }
 
-        /* A4 Page Layout */
+        /* A4 Page Layout - Strictly centered */
         .page-preview {
             width: 210mm;
-            height: 296mm; /* Shaved off 1mm to prevent blank second page */
+            height: 296mm; 
             margin: 0 auto;
             background: white;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
-            overflow: hidden; /* Digital superglue to prevent spillage */
+            overflow: hidden; 
         }
 
         .label-half {
@@ -400,11 +400,11 @@
             element.style.boxShadow = 'none';
 
             const opt = {
-                margin:       0,
+                margin:       [0, 0, 0, 0], // Zero margins to lock true center
                 filename:     'Craft_crafterina_Labels.pdf',
                 image:        { type: 'jpeg', quality: 1 },
-                html2canvas:  { scale: 2, useCORS: true, scrollY: 0 }, /* scrollY ensures the top doesn't get cut off on mobile */
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                html2canvas:  { scale: 2, useCORS: true, scrollY: 0, x: 0, y: 0 },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait', putOnlyUsedFonts: true }
             };
 
             html2pdf().set(opt).from(element).save().then(() => {
