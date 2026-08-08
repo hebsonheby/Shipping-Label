@@ -79,9 +79,9 @@
             background-color: #333;
         }
 
-        /* A4 Page Layout - Strictly centered */
+        /* A4 Page Layout - Perfect centering width */
         .page-preview {
-            width: 210mm;
+            width: 208mm; /* Slightly adjusted to prevent side clipping */
             height: 296mm; 
             margin: 0 auto;
             background: white;
@@ -216,13 +216,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 25px;
+            gap: 15px; /* Balanced gap so symbols stay fully inside */
             font-family: Arial, Helvetica, sans-serif; 
             font-weight: bold; 
             text-transform: uppercase; 
             line-height: 1.2;
             margin-top: 15px;
-            padding: 20px; 
+            padding: 15px; /* Added internal safety padding */
             border: 4px solid #000;
             border-radius: 8px;
             background-color: #fcfcfc;
@@ -247,8 +247,8 @@
         }
 
         .fragile-icon {
-            width: 75px; 
-            height: 75px;
+            width: 65px; /* Scaled perfectly to fit inside */
+            height: 65px; 
             flex-shrink: 0;
         }
     </style>
@@ -400,7 +400,7 @@
             element.style.boxShadow = 'none';
 
             const opt = {
-                margin:       [0, 0, 0, 0], // Zero margins to lock true center
+                margin:       [0, 0, 0, 0],
                 filename:     'Craft_crafterina_Labels.pdf',
                 image:        { type: 'jpeg', quality: 1 },
                 html2canvas:  { scale: 2, useCORS: true, scrollY: 0, x: 0, y: 0 },
