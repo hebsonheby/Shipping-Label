@@ -71,7 +71,7 @@
 
         /* A4 Page Layout */
         .page-preview {
-            width: 200mm; /* Narrowed safely to prevent ALL edge clipping on mobile */
+            width: 200mm; 
             height: 290mm; 
             margin: 0 auto;
             background: white;
@@ -200,7 +200,7 @@
             display: flex;
             align-items: center;
             justify-content: center; 
-            gap: 30px; 
+            gap: 20px; 
             font-family: Arial, Helvetica, sans-serif; 
             text-transform: uppercase; 
             margin-top: 15px;
@@ -226,10 +226,14 @@
             font-weight: bold; 
         }
 
+        /* Bulletproof Icon Sizing */
         .fragile-icon {
-            width: 75px; /* Restored to bold, prominent size */
-            height: 75px; 
-            flex-shrink: 0;
+            width: 70px !important; 
+            height: 70px !important; 
+            min-width: 70px !important;
+            min-height: 70px !important;
+            flex: 0 0 70px !important; /* FORCES it to never shrink */
+            display: block;
         }
     </style>
     
@@ -284,7 +288,7 @@
                     </div>
                 </div>
                 <div class="warning-text">
-                    <svg class="fragile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="fragile-icon" width="70" height="70" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
                         <rect x="11" y="14" width="2" height="6" fill="#000" />
                         <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
@@ -296,7 +300,7 @@
                         <div class="warning-line2">FRAGILE</div>
                     </div>
 
-                    <svg class="fragile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="fragile-icon" width="70" height="70" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
                         <rect x="11" y="14" width="2" height="6" fill="#000" />
                         <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
@@ -335,7 +339,7 @@
                     </div>
                 </div>
                 <div class="warning-text">
-                    <svg class="fragile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="fragile-icon" width="70" height="70" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
                         <rect x="11" y="14" width="2" height="6" fill="#000" />
                         <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
@@ -347,7 +351,7 @@
                         <div class="warning-line2">FRAGILE</div>
                     </div>
                     
-                    <svg class="fragile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="fragile-icon" width="70" height="70" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
                         <rect x="11" y="14" width="2" height="6" fill="#000" />
                         <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
