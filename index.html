@@ -82,13 +82,14 @@
         /* A4 Page Layout */
         .page-preview {
             width: 210mm;
-            height: 297mm;
+            height: 296mm; /* Shaved off 1mm to prevent blank second page */
             margin: 0 auto;
             background: white;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
+            overflow: hidden; /* Digital superglue to prevent spillage */
         }
 
         .label-half {
@@ -226,7 +227,7 @@
             border-radius: 8px;
             background-color: #fcfcfc;
             letter-spacing: 1.5px;
-            height: 52mm; /* Locked height */
+            height: 52mm; 
             box-sizing: border-box;
         }
         
@@ -270,7 +271,6 @@
             <textarea id="to2" placeholder="Leave blank to save paper, or enter a second order here..."></textarea>
         </div>
 
-        <!-- Changed from window.print() to generatePDF() -->
         <button class="print-btn" onclick="generatePDF()">Download Clean PDF</button>
     </div>
 
@@ -381,7 +381,6 @@
     </div>
 
     <script>
-        // Keep inputs synced to display boxes
         window.onload = function() {
             document.getElementById('to1').value = document.getElementById('to1').value.trim();
             document.getElementById('to2').value = document.getElementById('to2').value.trim();
@@ -395,24 +394,20 @@
             document.getElementById('display-to2').textContent = this.value;
         });
 
-        // New PDF Generator Function
         function generatePDF() {
             const element = document.getElementById('label-page');
             
-            // Temporarily remove the shadow so it doesn't render in the PDF
             element.style.boxShadow = 'none';
 
             const opt = {
                 margin:       0,
                 filename:     'Craft_crafterina_Labels.pdf',
                 image:        { type: 'jpeg', quality: 1 },
-                html2canvas:  { scale: 2, useCORS: true },
+                html2canvas:  { scale: 2, useCORS: true, scrollY: 0 }, /* scrollY ensures the top doesn't get cut off on mobile */
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
-            // Build the PDF and trigger download
             html2pdf().set(opt).from(element).save().then(() => {
-                // Put the shadow back after generating
                 element.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
             });
         }
