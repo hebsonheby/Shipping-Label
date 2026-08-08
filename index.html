@@ -79,7 +79,7 @@
             background-color: #333;
         }
 
-        /* A4 Page Layout for Screen */
+        /* A4 Page Layout */
         .page-preview {
             width: 210mm;
             height: 297mm;
@@ -163,7 +163,7 @@
             white-space: pre-wrap; 
         }
 
-        /* CSS Rendered Logo (Screen) */
+        /* CSS Rendered Logo */
         .css-logo {
             width: 80px;
             height: 80px;
@@ -226,6 +226,8 @@
             border-radius: 8px;
             background-color: #fcfcfc;
             letter-spacing: 1.5px;
+            height: 52mm; /* Locked height */
+            box-sizing: border-box;
         }
         
         .warning-text-content {
@@ -248,167 +250,10 @@
             height: 75px;
             flex-shrink: 0;
         }
-
-        /* Bulletproof Print Rules */
-        @media print {
-            html, body {
-                background: none;
-                margin: 0;
-                padding: 0;
-            }
-            .controls {
-                display: none; 
-            }
-            .page-preview {
-                box-shadow: none;
-                width: 210mm !important; 
-                height: 276mm !important; 
-                max-height: 276mm !important; 
-                overflow: hidden; 
-                display: block; 
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-            
-            .label-half {
-                height: 138mm !important; 
-                padding: 6mm 10mm; 
-                box-sizing: border-box;
-                border-bottom: 3px dashed #000 !important; 
-                page-break-inside: avoid;
-            }
-            
-            .label-half:last-child {
-                border-bottom: none !important; 
-                page-break-after: avoid;
-            }
-
-            .label-inner {
-                padding: 12px;
-                display: block;
-                height: 124mm; 
-                max-height: 124mm; 
-                box-sizing: border-box;
-                overflow: hidden;
-            }
-            
-            .address-container {
-                display: flex; 
-                height: 62mm; 
-                max-height: 62mm; 
-                gap: 15px;
-                margin-bottom: 3mm;
-            }
-            
-            .sender-info, .recipient-info {
-                padding: 10px;
-                height: 100%;
-                box-sizing: border-box;
-            }
-            
-            .sender-content-wrapper {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-            }
-
-            .address-text {
-                font-size: 15pt; 
-            }
-
-            .sender-info .address-text {
-                font-size: 12pt !important; 
-            }
-            
-            .section-title {
-                font-size: 11pt;
-                margin: 0 0 6px 0;
-            }
-
-            /* CSS Logo Print Formatting */
-            .css-logo {
-                width: 25mm !important;
-                height: 25mm !important;
-                border: 2px solid #000 !important;
-                padding: 1.5mm !important;
-                margin-left: 3mm !important;
-                border-radius: 50% !important;
-                display: flex !important;
-                box-sizing: border-box !important;
-                flex-shrink: 0 !important;
-            }
-
-            .css-logo-inner {
-                border: 1px solid #000 !important;
-                border-radius: 50% !important;
-                width: 100% !important;
-                height: 100% !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
-                box-sizing: border-box !important;
-            }
-
-            .logo-text-script {
-                font-family: 'Dancing Script', 'Snell Roundhand', cursive !important;
-                font-size: 11pt !important;
-                font-weight: bold !important;
-                line-height: 0.9 !important;
-                color: #000 !important;
-            }
-
-            .logo-text-serif {
-                font-family: 'Times New Roman', Times, serif !important;
-                font-size: 4.5pt !important;
-                margin-top: 1.5mm !important;
-                line-height: 1.1 !important;
-                font-weight: bold !important;
-                text-transform: uppercase !important;
-                color: #000 !important;
-                text-align: center !important;
-            }
-            
-            /* Warning Box */
-            .warning-text {
-                display: flex;
-                margin: 0; 
-                padding: 6px 10px; 
-                background-color: transparent; 
-                gap: 20px;
-                align-items: center;
-                justify-content: center;
-                height: 52mm; 
-                max-height: 52mm; 
-                box-sizing: border-box;
-                font-family: Arial, Helvetica, sans-serif !important;
-                width: 100%;
-            }
-
-            .warning-line1 {
-                font-size: 22pt !important;
-                font-weight: bold !important; 
-                white-space: nowrap;
-            }
-
-            .warning-line2 {
-                font-size: 30pt !important;
-                font-weight: bold !important; 
-            }
-
-            .fragile-icon {
-                width: 65px !important;
-                height: 65px !important;
-            }
-
-            @page {
-                size: A4 portrait;
-                margin: 0mm !important; /* Hides browser injected headers and footers */
-            }
-        }
     </style>
+    
+    <!-- Import html2pdf to bypass Safari's print engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -425,10 +270,11 @@
             <textarea id="to2" placeholder="Leave blank to save paper, or enter a second order here..."></textarea>
         </div>
 
-        <button class="print-btn" onclick="window.print()">Print Professional A4 Labels</button>
+        <!-- Changed from window.print() to generatePDF() -->
+        <button class="print-btn" onclick="generatePDF()">Download Clean PDF</button>
     </div>
 
-    <div class="page-preview">
+    <div class="page-preview" id="label-page">
         
         <!-- Top Label -->
         <div class="label-half">
@@ -445,7 +291,6 @@
                                 Kerala PIN: 679536<br>
                                 Ph: 9400756312
                             </div>
-                            <!-- Digital CSS Replica of image_22.png -->
                             <div class="css-logo">
                                 <div class="css-logo-inner">
                                     <div class="logo-text-script">Craft</div>
@@ -462,7 +307,6 @@
                     </div>
                 </div>
                 <div class="warning-text">
-                    <!-- Epson-Proof Three Piece SVG Vector -->
                     <svg class="fragile-icon" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                         <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
@@ -474,7 +318,6 @@
                         <div class="warning-line2"><b>FRAGILE</b></div>
                     </div>
 
-                    <!-- Epson-Proof Three Piece SVG Vector (Right Side) -->
                     <svg class="fragile-icon" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                         <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
@@ -499,7 +342,6 @@
                                 Kerala PIN: 679536<br>
                                 Ph: 9400756312
                             </div>
-                            <!-- Digital CSS Replica of image_22.png -->
                             <div class="css-logo">
                                 <div class="css-logo-inner">
                                     <div class="logo-text-script">Craft</div>
@@ -516,7 +358,6 @@
                     </div>
                 </div>
                 <div class="warning-text">
-                    <!-- Epson-Proof Three Piece SVG Vector -->
                     <svg class="fragile-icon" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                         <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
@@ -528,7 +369,6 @@
                         <div class="warning-line2"><b>FRAGILE</b></div>
                     </div>
                     
-                    <!-- Epson-Proof Three Piece SVG Vector (Right Side) -->
                     <svg class="fragile-icon" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                         <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
@@ -541,6 +381,7 @@
     </div>
 
     <script>
+        // Keep inputs synced to display boxes
         window.onload = function() {
             document.getElementById('to1').value = document.getElementById('to1').value.trim();
             document.getElementById('to2').value = document.getElementById('to2').value.trim();
@@ -553,6 +394,28 @@
         document.getElementById('to2').addEventListener('input', function() {
             document.getElementById('display-to2').textContent = this.value;
         });
+
+        // New PDF Generator Function
+        function generatePDF() {
+            const element = document.getElementById('label-page');
+            
+            // Temporarily remove the shadow so it doesn't render in the PDF
+            element.style.boxShadow = 'none';
+
+            const opt = {
+                margin:       0,
+                filename:     'Craft_crafterina_Labels.pdf',
+                image:        { type: 'jpeg', quality: 1 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Build the PDF and trigger download
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Put the shadow back after generating
+                element.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
+            });
+        }
     </script>
 
 </body>
