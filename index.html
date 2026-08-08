@@ -200,11 +200,11 @@
             display: flex;
             align-items: center;
             justify-content: center; 
-            gap: 20px; /* Reduced gap to bring items closer to center */
+            gap: 20px; 
             font-family: Arial, Helvetica, sans-serif; 
             text-transform: uppercase; 
             margin-top: 15px;
-            padding: 10px 20px; /* Adjusted padding to give more internal space */
+            padding: 10px 20px; 
             border: 4px solid #000;
             border-radius: 8px;
             height: 52mm; 
@@ -228,9 +228,9 @@
 
         /* The Shield Wrapper Fix */
         .icon-wrapper {
-            width: 60px !important; /* Scaled down to prevent clipping */
-            height: 60px !important;
-            min-width: 60px !important;
+            width: 65px !important; 
+            height: 65px !important;
+            min-width: 65px !important;
             flex-shrink: 0 !important;
             display: flex;
             align-items: center;
@@ -296,6 +296,7 @@
                 <div class="warning-text">
                     
                     <div class="icon-wrapper">
+                        <!-- Original, un-breakable 3-piece SVG -->
                         <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                             <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
@@ -309,6 +310,7 @@
                     </div>
 
                     <div class="icon-wrapper">
+                        <!-- Original, un-breakable 3-piece SVG -->
                         <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                             <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
@@ -351,6 +353,7 @@
                 <div class="warning-text">
                     
                     <div class="icon-wrapper">
+                        <!-- Original, un-breakable 3-piece SVG -->
                         <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                             <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
@@ -364,6 +367,7 @@
                     </div>
                     
                     <div class="icon-wrapper">
+                        <!-- Original, un-breakable 3-piece SVG -->
                         <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                             <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
@@ -402,11 +406,8 @@
                 image:        { type: 'jpeg', quality: 1 },
                 html2canvas:  { 
                     scale: 2, 
-                    useCORS: true, 
-                    scrollY: 0, 
-                    x: 0, 
-                    y: 0,
-                    windowWidth: element.scrollWidth 
+                    useCORS: true,
+                    windowWidth: document.body.scrollWidth 
                 },
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
