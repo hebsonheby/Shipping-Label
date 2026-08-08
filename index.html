@@ -79,9 +79,9 @@
             background-color: #333;
         }
 
-        /* A4 Page Layout - Perfect centering width */
+        /* A4 Page Layout */
         .page-preview {
-            width: 208mm; /* Slightly adjusted to prevent side clipping */
+            width: 208mm; 
             height: 296mm; 
             margin: 0 auto;
             background: white;
@@ -215,14 +215,13 @@
         .warning-text {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 15px; /* Balanced gap so symbols stay fully inside */
+            justify-content: space-between; /* Evenly spaces icons and text so nothing gets cut */
             font-family: Arial, Helvetica, sans-serif; 
             font-weight: bold; 
             text-transform: uppercase; 
             line-height: 1.2;
             margin-top: 15px;
-            padding: 15px; /* Added internal safety padding */
+            padding: 10px 25px; /* Generous side padding prevents edge clipping */
             border: 4px solid #000;
             border-radius: 8px;
             background-color: #fcfcfc;
@@ -247,8 +246,8 @@
         }
 
         .fragile-icon {
-            width: 65px; /* Scaled perfectly to fit inside */
-            height: 65px; 
+            width: 55px; /* Safely sized to prevent clipping */
+            height: 55px; 
             flex-shrink: 0;
         }
     </style>
