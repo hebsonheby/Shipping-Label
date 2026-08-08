@@ -200,11 +200,11 @@
             display: flex;
             align-items: center;
             justify-content: center; 
-            gap: 20px; 
+            gap: 25px; 
             font-family: Arial, Helvetica, sans-serif; 
             text-transform: uppercase; 
             margin-top: 15px;
-            padding: 10px; 
+            padding: 10px 25px; 
             border: 4px solid #000;
             border-radius: 8px;
             height: 52mm; 
@@ -226,14 +226,20 @@
             font-weight: bold; 
         }
 
-        /* Bulletproof Icon Sizing */
-        .fragile-icon {
-            width: 70px !important; 
-            height: 70px !important; 
-            min-width: 70px !important;
-            min-height: 70px !important;
-            flex: 0 0 70px !important; /* FORCES it to never shrink */
-            display: block;
+        /* The Shield Wrapper Fix */
+        .icon-wrapper {
+            width: 75px !important;
+            height: 75px !important;
+            min-width: 75px !important;
+            flex-shrink: 0 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-wrapper svg {
+            width: 100%;
+            height: 100%;
         }
     </style>
     
@@ -288,24 +294,28 @@
                     </div>
                 </div>
                 <div class="warning-text">
-                    <svg class="fragile-icon" width="70" height="70" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
-                        <rect x="11" y="14" width="2" height="6" fill="#000" />
-                        <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
-                        <polyline points="14,0 10.5,7 13,8 9.5,14" stroke="#fff" stroke-width="1.5" fill="none" />
-                    </svg>
+                    
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
+                            <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
+                            <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
+                        </svg>
+                    </div>
                     
                     <div class="warning-text-content">
                         <div class="warning-line1">HANDLE WITH CARE</div>
                         <div class="warning-line2">FRAGILE</div>
                     </div>
 
-                    <svg class="fragile-icon" width="70" height="70" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
-                        <rect x="11" y="14" width="2" height="6" fill="#000" />
-                        <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
-                        <polyline points="14,0 10.5,7 13,8 9.5,14" stroke="#fff" stroke-width="1.5" fill="none" />
-                    </svg>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
+                            <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
+                            <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
+                        </svg>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -339,24 +349,28 @@
                     </div>
                 </div>
                 <div class="warning-text">
-                    <svg class="fragile-icon" width="70" height="70" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
-                        <rect x="11" y="14" width="2" height="6" fill="#000" />
-                        <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
-                        <polyline points="14,0 10.5,7 13,8 9.5,14" stroke="#fff" stroke-width="1.5" fill="none" />
-                    </svg>
+                    
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
+                            <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
+                            <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
+                        </svg>
+                    </div>
                     
                     <div class="warning-text-content">
                         <div class="warning-line1">HANDLE WITH CARE</div>
                         <div class="warning-line2">FRAGILE</div>
                     </div>
                     
-                    <svg class="fragile-icon" width="70" height="70" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
-                        <rect x="11" y="14" width="2" height="6" fill="#000" />
-                        <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
-                        <polyline points="14,0 10.5,7 13,8 9.5,14" stroke="#fff" stroke-width="1.5" fill="none" />
-                    </svg>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
+                            <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
+                            <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
+                        </svg>
+                    </div>
+                    
                 </div>
             </div>
         </div>
