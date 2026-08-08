@@ -226,20 +226,13 @@
             font-weight: bold; 
         }
 
-        /* The Shield Wrapper Fix */
-        .icon-wrapper {
+        /* Locked Image Styling */
+        .fragile-icon {
             width: 65px !important; 
             height: 65px !important;
             min-width: 65px !important;
             flex-shrink: 0 !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .icon-wrapper svg {
-            width: 100%;
-            height: 100%;
+            object-fit: contain;
         }
     </style>
     
@@ -294,30 +287,16 @@
                     </div>
                 </div>
                 <div class="warning-text">
-                    
-                    <div class="icon-wrapper">
-                        <!-- Original, un-breakable 3-piece SVG -->
-                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
-                            <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
-                            <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
-                        </svg>
-                    </div>
+                    <!-- Flat Data URI Image (Unscramble-able by PDF Engine) -->
+                    <img class="fragile-icon" src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 2 L17 2 L17 7 C17 11 14 14 12 14 C10 14 7 11 7 7 Z' fill='%23000'/%3E%3Crect x='11' y='14' width='2' height='6' fill='%23000'/%3E%3Cpath d='M8 22 L16 22 L14 20 L10 20 Z' fill='%23000'/%3E%3Cpolyline points='15,0 11,7 14,8 10,14' stroke='%23fff' stroke-width='1.5' fill='none'/%3E%3C/svg%3E" alt="Fragile" />
                     
                     <div class="warning-text-content">
                         <div class="warning-line1">HANDLE WITH CARE</div>
                         <div class="warning-line2">FRAGILE</div>
                     </div>
 
-                    <div class="icon-wrapper">
-                        <!-- Original, un-breakable 3-piece SVG -->
-                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
-                            <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
-                            <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
-                        </svg>
-                    </div>
-                    
+                    <!-- Flat Data URI Image -->
+                    <img class="fragile-icon" src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 2 L17 2 L17 7 C17 11 14 14 12 14 C10 14 7 11 7 7 Z' fill='%23000'/%3E%3Crect x='11' y='14' width='2' height='6' fill='%23000'/%3E%3Cpath d='M8 22 L16 22 L14 20 L10 20 Z' fill='%23000'/%3E%3Cpolyline points='15,0 11,7 14,8 10,14' stroke='%23fff' stroke-width='1.5' fill='none'/%3E%3C/svg%3E" alt="Fragile" />
                 </div>
             </div>
         </div>
@@ -351,30 +330,16 @@
                     </div>
                 </div>
                 <div class="warning-text">
-                    
-                    <div class="icon-wrapper">
-                        <!-- Original, un-breakable 3-piece SVG -->
-                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
-                            <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
-                            <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
-                        </svg>
-                    </div>
+                    <!-- Flat Data URI Image -->
+                    <img class="fragile-icon" src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 2 L17 2 L17 7 C17 11 14 14 12 14 C10 14 7 11 7 7 Z' fill='%23000'/%3E%3Crect x='11' y='14' width='2' height='6' fill='%23000'/%3E%3Cpath d='M8 22 L16 22 L14 20 L10 20 Z' fill='%23000'/%3E%3Cpolyline points='15,0 11,7 14,8 10,14' stroke='%23fff' stroke-width='1.5' fill='none'/%3E%3C/svg%3E" alt="Fragile" />
                     
                     <div class="warning-text-content">
                         <div class="warning-line1">HANDLE WITH CARE</div>
                         <div class="warning-line2">FRAGILE</div>
                     </div>
                     
-                    <div class="icon-wrapper">
-                        <!-- Original, un-breakable 3-piece SVG -->
-                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
-                            <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
-                            <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
-                        </svg>
-                    </div>
-                    
+                    <!-- Flat Data URI Image -->
+                    <img class="fragile-icon" src="data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 2 L17 2 L17 7 C17 11 14 14 12 14 C10 14 7 11 7 7 Z' fill='%23000'/%3E%3Crect x='11' y='14' width='2' height='6' fill='%23000'/%3E%3Cpath d='M8 22 L16 22 L14 20 L10 20 Z' fill='%23000'/%3E%3Cpolyline points='15,0 11,7 14,8 10,14' stroke='%23fff' stroke-width='1.5' fill='none'/%3E%3C/svg%3E" alt="Fragile" />
                 </div>
             </div>
         </div>
