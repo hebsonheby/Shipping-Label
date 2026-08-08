@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Craft_crafterina Shipping Labels</title>
-    <!-- Import Elegant Script Font for Logo -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
         
@@ -21,7 +20,6 @@
             color: var(--text-color);
         }
 
-        /* Screen UI elements */
         .controls {
             max-width: 600px;
             margin: 0 auto 30px auto;
@@ -56,9 +54,6 @@
             resize: vertical;
             font-family: inherit;
             font-size: 16px;
-            text-align: left;
-            text-indent: 0; 
-            margin: 0;
         }
 
         .print-btn {
@@ -72,24 +67,18 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .print-btn:hover {
-            background-color: #333;
         }
 
         /* A4 Page Layout */
         .page-preview {
-            width: 210mm; 
-            height: 296mm; 
+            width: 200mm; /* Narrowed safely to prevent ALL edge clipping on mobile */
+            height: 290mm; 
             margin: 0 auto;
             background: white;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
-            overflow: hidden; 
         }
 
         .label-half {
@@ -104,7 +93,6 @@
             border-bottom: none;
         }
 
-        /* Inner Professional Border Box */
         .label-inner {
             border: 3px solid #000;
             border-radius: 12px;
@@ -123,7 +111,6 @@
             flex-grow: 1;
         }
 
-        /* Individual Address Boxes */
         .sender-info, .recipient-info {
             width: 50%;
             border: 2px solid #555;
@@ -140,10 +127,8 @@
             border-bottom: 2px solid #000;
             padding-bottom: 5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        /* Sender Layout with Logo */
         .sender-content-wrapper {
             display: flex;
             justify-content: space-between;
@@ -203,7 +188,6 @@
             font-family: 'Times New Roman', Times, serif;
             font-size: 7px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
             text-align: center;
             margin-top: 4px;
             line-height: 1.1;
@@ -211,21 +195,18 @@
             font-weight: bold;
         }
 
-        /* Fragile Warning Box with Symbol */
+        /* Fragile Warning Box */
         .warning-text {
             display: flex;
             align-items: center;
-            justify-content: center; /* Forces everything strictly to the center */
-            gap: 25px; /* Standard spacing */
+            justify-content: center; 
+            gap: 25px; 
             font-family: Arial, Helvetica, sans-serif; 
-            font-weight: bold; 
             text-transform: uppercase; 
-            line-height: 1.2;
             margin-top: 15px;
+            padding: 10px; 
             border: 4px solid #000;
             border-radius: 8px;
-            background-color: #fcfcfc;
-            letter-spacing: 1.5px;
             height: 52mm; 
             box-sizing: border-box;
         }
@@ -236,23 +217,22 @@
 
         .warning-line1 {
             font-size: 26px;
-            font-weight: bold !important; 
+            font-weight: bold; 
             white-space: nowrap;
         }
 
         .warning-line2 {
             font-size: 34px;
-            font-weight: bold !important; 
+            font-weight: bold; 
         }
 
         .fragile-icon {
-            width: 50px; /* Safe size */
-            height: 50px; 
+            width: 45px; 
+            height: 45px; 
             flex-shrink: 0;
         }
     </style>
     
-    <!-- Import html2pdf to bypass Safari's print engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
@@ -279,7 +259,6 @@
         <div class="label-half">
             <div class="label-inner">
                 <div class="address-container">
-                    
                     <div class="sender-info">
                         <h3 class="section-title">FROM</h3>
                         <div class="sender-content-wrapper">
@@ -299,28 +278,29 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="recipient-info">
                         <h3 class="section-title">SHIP TO</h3>
                         <div class="address-text" id="display-to1"></div>
                     </div>
                 </div>
                 <div class="warning-text">
-                    <svg class="fragile-icon" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
-                        <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
-                        <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
+                    <svg class="fragile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
+                        <rect x="11" y="14" width="2" height="6" fill="#000" />
+                        <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
+                        <polyline points="14,0 10.5,7 13,8 9.5,14" stroke="#fff" stroke-width="1.5" fill="none" />
                     </svg>
                     
                     <div class="warning-text-content">
-                        <div class="warning-line1"><b>HANDLE&nbsp;WITH&nbsp;CARE</b></div>
-                        <div class="warning-line2"><b>FRAGILE</b></div>
+                        <div class="warning-line1">HANDLE WITH CARE</div>
+                        <div class="warning-line2">FRAGILE</div>
                     </div>
 
-                    <svg class="fragile-icon" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
-                        <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
-                        <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
+                    <svg class="fragile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
+                        <rect x="11" y="14" width="2" height="6" fill="#000" />
+                        <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
+                        <polyline points="14,0 10.5,7 13,8 9.5,14" stroke="#fff" stroke-width="1.5" fill="none" />
                     </svg>
                 </div>
             </div>
@@ -330,7 +310,6 @@
         <div class="label-half">
             <div class="label-inner">
                 <div class="address-container">
-                    
                     <div class="sender-info">
                         <h3 class="section-title">FROM</h3>
                         <div class="sender-content-wrapper">
@@ -350,28 +329,29 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="recipient-info">
                         <h3 class="section-title">SHIP TO</h3>
                         <div class="address-text" id="display-to2"></div>
                     </div>
                 </div>
                 <div class="warning-text">
-                    <svg class="fragile-icon" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
-                        <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
-                        <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
+                    <svg class="fragile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
+                        <rect x="11" y="14" width="2" height="6" fill="#000" />
+                        <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
+                        <polyline points="14,0 10.5,7 13,8 9.5,14" stroke="#fff" stroke-width="1.5" fill="none" />
                     </svg>
                     
                     <div class="warning-text-content">
-                        <div class="warning-line1"><b>HANDLE&nbsp;WITH&nbsp;CARE</b></div>
-                        <div class="warning-line2"><b>FRAGILE</b></div>
+                        <div class="warning-line1">HANDLE WITH CARE</div>
+                        <div class="warning-line2">FRAGILE</div>
                     </div>
                     
-                    <svg class="fragile-icon" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
-                        <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
-                        <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
+                    <svg class="fragile-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6,2 L18,2 L18,7 C18,11.5 15.5,14.5 12,14.5 C8.5,14.5 6,11.5 6,7 Z" fill="#000" />
+                        <rect x="11" y="14" width="2" height="6" fill="#000" />
+                        <path d="M7,22 L17,22 L15.5,20.5 C14,20 10,20 8.5,20.5 Z" fill="#000" />
+                        <polyline points="14,0 10.5,7 13,8 9.5,14" stroke="#fff" stroke-width="1.5" fill="none" />
                     </svg>
                 </div>
             </div>
@@ -396,7 +376,6 @@
         function generatePDF() {
             const element = document.getElementById('label-page');
             
-            // Remove shadow so it doesn't render in the PDF
             element.style.boxShadow = 'none';
 
             const opt = {
@@ -405,17 +384,13 @@
                 image:        { type: 'jpeg', quality: 1 },
                 html2canvas:  { 
                     scale: 2, 
-                    useCORS: true, 
-                    scrollY: 0, 
-                    x: 0, 
-                    y: 0,
-                    windowWidth: element.scrollWidth // This is the magic bullet for iOS mobile screens!
+                    useCORS: true,
+                    windowWidth: document.body.scrollWidth 
                 },
-                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait', putOnlyUsedFonts: true }
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
             html2pdf().set(opt).from(element).save().then(() => {
-                // Restore the shadow for the screen view
                 element.style.boxShadow = '0 0 10px rgba(0,0,0,0.2)';
             });
         }
