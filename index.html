@@ -69,17 +69,16 @@
             cursor: pointer;
         }
 
-        /* A4 Page Layout - Hidden off-screen for a clean UI */
+        /* A4 Page Layout */
         .page-preview {
             width: 200mm; 
             height: 290mm; 
+            margin: 0 auto;
             background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
-            position: absolute;
-            left: -9999px;
-            top: -9999px;
         }
 
         .label-half {
@@ -201,11 +200,11 @@
             display: flex;
             align-items: center;
             justify-content: center; 
-            gap: 25px; 
+            gap: 20px; 
             font-family: Arial, Helvetica, sans-serif; 
             text-transform: uppercase; 
             margin-top: 15px;
-            padding: 10px 25px; 
+            padding: 10px 20px; 
             border: 4px solid #000;
             border-radius: 8px;
             height: 52mm; 
@@ -227,20 +226,17 @@
             font-weight: bold; 
         }
 
-        /* The Shield Wrapper Fix */
         .icon-wrapper {
-            width: 75px !important;
-            height: 75px !important;
-            min-width: 75px !important;
-            flex-shrink: 0 !important;
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .icon-wrapper svg {
-            width: 100%;
-            height: 100%;
+            display: block;
         }
     </style>
     
@@ -252,12 +248,12 @@
         <h2>Shipping Label Generator</h2>
         
         <div class="input-group">
-            <label for="to1">Top Label</label>
+            <label for="to1">Top Label - Customer Address:</label>
             <textarea id="to1" placeholder="Enter recipient name and address..."></textarea>
         </div>
 
         <div class="input-group">
-            <label for="to2">Bottom Label</label>
+            <label for="to2">Bottom Label - Customer Address (Optional):</label>
             <textarea id="to2" placeholder="Leave blank to save paper, or enter a second order here..."></textarea>
         </div>
 
@@ -297,7 +293,8 @@
                 <div class="warning-text">
                     
                     <div class="icon-wrapper">
-                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Hardcoded HTML sizes stop the PDF engine from squashing it -->
+                        <svg width="60" height="60" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                             <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
                             <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
@@ -310,7 +307,7 @@
                     </div>
 
                     <div class="icon-wrapper">
-                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="60" height="60" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                             <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
                             <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
@@ -352,7 +349,7 @@
                 <div class="warning-text">
                     
                     <div class="icon-wrapper">
-                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="60" height="60" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                             <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
                             <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
@@ -365,7 +362,7 @@
                     </div>
                     
                     <div class="icon-wrapper">
-                        <svg viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <svg width="60" height="60" viewBox="0 0 100 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M 25 10 L 45 10 L 38 28 L 52 40 L 47 55 C 25 55 25 30 25 10 Z" />
                             <path d="M 55 10 L 75 10 C 75 30 75 55 53 55 L 58 40 L 44 28 Z" />
                             <path d="M 47 55 L 53 55 L 53 85 L 70 90 L 70 95 L 30 95 L 30 90 L 47 85 Z" />
@@ -404,7 +401,9 @@
                 html2canvas:  { 
                     scale: 2, 
                     useCORS: true,
-                    windowWidth: document.body.scrollWidth 
+                    windowWidth: document.body.scrollWidth,
+                    scrollY: 0, /* FIX: Forces the snapshot to start from the absolute top, preventing blank pages */
+                    scrollX: 0
                 },
                 jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
